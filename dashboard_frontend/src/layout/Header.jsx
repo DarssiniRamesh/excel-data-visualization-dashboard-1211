@@ -1,6 +1,5 @@
 import React from 'react';
 
-// PUBLIC_INTERFACE
 export default function Header({ onToggleTheme, theme }) {
   /** Header with brand, title, and quick actions (theme toggle, help). */
   return (
@@ -14,9 +13,20 @@ export default function Header({ onToggleTheme, theme }) {
         <button className="btn ghost" onClick={onToggleTheme} aria-label="Toggle theme">
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
-        <button className="btn secondary" aria-label="Help and docs">
+        <a
+          className="btn secondary"
+          aria-label="Help and docs"
+          href="#usage"
+          onClick={(e) => {
+            const el = document.getElementById('usage');
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
           ❓ Help
-        </button>
+        </a>
       </div>
     </header>
   );

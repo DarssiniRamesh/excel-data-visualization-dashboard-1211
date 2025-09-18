@@ -1,82 +1,45 @@
-# Lightweight React Template for KAVIA
+# Excel Data Visualization Dashboard (Ocean Professional)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern React dashboard to upload and explore Excel data with charts, tables, filters, and a light/dark theme.
 
-## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Key Features
+- Excel upload via drag-and-drop or button (SheetJS)
+- Validates common template columns (Date, Category, Value) but supports any schema
+- DataContext-based state with filters, sheet selection, and persisted preferences
+- Recharts-based Bar/Line/Area/Pie charts with column pickers
+- Sortable, paginated data table
+- KPI cards, responsive layout, accessible keyboard/ARIA
+- Ocean Professional theme with light/dark toggle and persistence
+- Footer status with file name, row count, last action
+- Downloadable Excel template
 
 ## Getting Started
 
-In the project directory, you can run:
+Install dependencies and start:
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
+npm start
 ```
 
-### Components
+Open http://localhost:3000 in your browser.
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## How to Use
+1. Upload an Excel (.xlsx) file from the sidebar or drag & drop into the upload area.
+2. If your workbook has multiple sheets, select one from the Sheet dropdown.
+3. Pick your Date/Category/Value columns (optional but recommended for filters/aggregates).
+4. Adjust the Date Range and Category Contains filters.
+5. Choose chart type and set X/Y columns to render Bar/Line/Area/Pie visuals.
+6. Sort/paginate the table. Theme, filters, and meta persist automatically.
+7. Use "Download Excel Template" to get a sample template with recommended columns.
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Notes
+- The app uses localStorage to persist theme (op_theme), dataset meta, last file name, and filters.
+- The table and charts adapt to both themes.
 
-## Learn More
+## Development
+- Styles: src/styles/theme.css
+- Data Context: src/context/DataContext.js
+- Excel Services: src/services/excel.js
+- Components: src/components/...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
